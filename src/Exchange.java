@@ -1,3 +1,4 @@
 public interface Exchange {
-    float rate(String origin, String target);
+    double rate(String fromCurrency, String toCurrency);
 }
+

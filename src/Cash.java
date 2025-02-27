@@ -7,19 +7,16 @@ public class Cash {
         this.cents = cents;
     }
 
-    public Cash in(String currency) {
-        return new Cash(this.exchange,
-                Math.round(this.cents *
-                        this.exchange.rate("USD", currency)
-                )
-        );
+    public Cash in(String fromCurrency, String toCurrency) {
+
+        int newCents = (int) Math.round(this.cents * exchange.rate(fromCurrency, toCurrency));
+        return new Cash(this.exchange, newCents);
     }
 
     @Override
     public String toString() {
         return "Cash{" +
-                "exchange=" + exchange +
-                ", cents=" + cents +
-                '}';
+            "cents=" + cents +
+            '}';
     }
 }
